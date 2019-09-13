@@ -10,16 +10,38 @@ KREWES = {
 
 }
 
-def getName(team):
-    # precondition: String team is one of the team names (i.e orpheus, rex, endymion)
-    if not(team in KREWES.keys()):
-        return '' # to avoid a program stopping error
+def randomStudent(team):
+    # PRECONDITION: String team must be a valid team name in constant KREWES
     return random.choice(KREWES[team])
 
-# TEST CASES
+def testRS():
+    teams = list(KREWES.keys())
+    for i in range(3):
+        team = teams[i]
+        print("Testing team " + team)
+        out = ""
+        contained = True
+        for x in range(19):
+            s = randomStudent(team)
+            out = out + s + ", "
+            if s not in KREWES[teams[i]]:
+                contained = False
+        s = randomStudent(team)
+        out = out + s
+        print(out)
+        if contained:
+            print("All items contained in team " + team + "\n")
+        else:
+            print("Something went wrong- not all items in team  " + team + "\n")
 
-print( getName("orpheus") )
-print( getName("endymion") )
-print( getName("rex") )
-print( getName("this is not a team name"))
-print( getName("orpheus") )
+def main():
+    name = input("Team name (type 'test' to test the function): ")
+    if name == "test":
+        testRS()
+    elif name in KREWES.keys():
+        print(randomStudent(name))
+    else:
+        print("Not a valid team")
+
+#testRS()
+main()
