@@ -3,7 +3,7 @@
 #skeleton :: SQLITE3 BASICS
 #07 Oct 2019
 
-# initialized from care package
+# initialized from care packagej
 
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O
@@ -19,8 +19,13 @@ c = db.cursor()               #facilitate db ops
 # < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
 
 
-command = ""          # test SQL stmt in sqlite3 shell, save as string
-c.execute(command)    # run SQL statement
+# command = "CREATE TABLE roster(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)"          # test SQL stmt in sqlite3 shell, save as string
+# c.execute(command)    # run SQL statement
+
+with open("students.csv") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row['name'],row['age'],row['id'])
 
 #==========================================================
 
