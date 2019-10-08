@@ -9,9 +9,16 @@ Log in!
 {% endblock %}
 
 {% block body %}
-<form action = "/login" method = "POST" action = "/login">
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      {{ message }} <br>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<form action = "/login" method = "POST">
   Username: <input type = "text" name = "username"> <br>
-  Password: <input type = "text" name = "password"> <br>
+  Password: <input type = "password" name = "password"> <br>
   <input type = "submit" name = "sub" value="login">
 </form>
 {% endblock %}
