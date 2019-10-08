@@ -21,11 +21,13 @@ c = db.cursor()               #facilitate db ops
 
 # command = "CREATE TABLE roster(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)"          # test SQL stmt in sqlite3 shell, save as string
 # c.execute(command)    # run SQL statement
-
+c.execute("CREATE TABLE roster(name TEXT,age INTEGER,id INTEGER PRIMARY KEY)")
 with open("students.csv") as file:
     reader = csv.DictReader(file)
     for row in reader:
         print(row['name'],row['age'],row['id'])
+        print("INSERT INTO roster (name,age,id) VALUES("+row['name']+","+row['age']+","+row['id']+")");
+        c.execute("INSERT INTO roster (name,age,id) VALUES(\""+row['name']+"\","+row['age']+","+row['id']+")");
 
 #==========================================================
 
