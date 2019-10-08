@@ -1,4 +1,4 @@
-#Kiran Vusksanaj
+#Kiran Vusksanaj & Vishwaa Sofat: Goldfish
 #SoftDev pd1
 #skeleton :: SQLITE3 BASICS
 #07 Oct 2019
@@ -19,14 +19,24 @@ c = db.cursor()               #facilitate db ops
 # < < < INSERT YOUR POPULATE-THE-DB CODE HERE > > >
 
 
-command = "CREATE TABLE students(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)"
-c.execute(command)    # run SQL statement
 
 with open("students.csv") as file:
+    command = "CREATE TABLE students(name TEXT, age INTEGER, id INTEGER PRIMARY KEY)"
+    c.execute(command)    # run SQL statement
     reader = csv.DictReader(file)
     for row in reader:
         print(row['name'],row['age'],row['id'])
         command = str.format("INSERT INTO students VALUES('{}','{}','{}')",row['name'],row['age'],row['id'])
+        print(command)
+        c.execute(command)
+
+with open("courses.csv") as file:
+    command = "CREATE TABLE courses(code TEXT, mark INTEGER, id INTEGER)"
+    c.execute(command)    # run SQL statement
+    reader = csv.DictReader(file)
+    for row in reader:
+        print(row['code'],row['mark'],row['id'])
+        command = str.format("INSERT INTO courses VALUES('{}','{}','{}')",row['code'],row['mark'],row['id'])
         print(command)
         c.execute(command)
 
