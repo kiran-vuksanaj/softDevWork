@@ -5,30 +5,97 @@
        K20 -- CSS basics
        2019-11-01f
 
-	 WORK FILE for CSS 	
+	 WORK FILE for CSS
     -->
 
   <head>
     <meta charset="utf-8"/>
     <title>foo title</title>
+    <style>
+body {
+  background-color: #666;
+  padding: 1%;
+  font-family: Helvetica;
+}
+.header {
+  padding: 1px;
+  background-color: #bebebe;
+  position: center;
+  color: white;
+  text-align: center;
+}
+#title {
+  margin: 10px;
+}
+
+.body {
+  position: relative;
+  top: 0%;
+  background-color: #777;
+  padding: 20px;
+}
+.navbar {
+  position: relative;
+  left: 0%;
+  top: 0%;
+  float: left;
+}
+.navbar h3 {
+  margin: 5px;
+}
+.navbar ul {
+  color: white;
+  list-style-type: none;
+  padding-left: 5px;
+}
+.navbar li {
+  margin-top: 10px;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.content_block {
+  position: relative;
+  right: 0%;
+  left: 10%;
+  top: 0%;
+}
+
+.footer {
+  position: center;
+  text-align: right;
+  color: #6d6d6d;
+  background-color: #565656;
+  padding: 7px;
+}
+    </style>
   </head>
 
   <body>
-    <h1>foo heading 1</h1>
-    <h3>nav foo</h3>
-    <ul>
-      <li><a href="">dis</a></li>
-      <li><a href="">dat</a></li>
-      <li><a href="">de udda ting</a></li>
-    </ul>
-    <h2>main foo heading</h2>
-    <p>tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk 
-
-      <br>
-      <br>
-
-      Copyright &copy; 2016 Clyde "Thluffy" Sinclair
-
+      <div class="header">
+        <h1 id="title">foo heading 1</h1>
+      </div>
+      <div class="body">
+        <div class="navbar">
+          <h3>nav foo</h3>
+            <ul>
+              <li><a href="">dis</a></li>
+              <li><a href="">dat</a></li>
+              <li><a href="">de udda ting</a></li>
+            </ul>
+        </div>
+        <div class="content_block">
+          <h2>main foo heading</h2>
+          <p>tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk tk</p>
+          <br>
+          <br>
+        </div>
+      </div>
+      <div class="footer">
+        Copyright &copy; 2016 Clyde "Thluffy" Sinclair
+      </div>
   </body>
 
 </html>
