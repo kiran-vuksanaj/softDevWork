@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- 
+     Team Whiskers -- Clement Chan, Kiran Vuksanaj
+     Softdev1 pd1
+     K22 -- Who Does Frame Work For?
+     2019-11-07
+  -->
+<html>
+  <head>
+    <title>Bootstrap CSS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- link to Bootstrap CSS -->
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+	<div class="col-sm">
+	  <p>
+	    Team Whiskers -- Clement Chan, Kiran Vuksanaj<br />
+	    Softdev1 pd1<br />
+	    K22 -- Who Does Frame Work For?<br />
+	    2019-11-07
+	  </p>
+	</div>
+	<div class="col-sm">
+	  <h3>
+	    Pulled up by them <em>Bootstraps</em>
+	  </h3>
+	</div>
+      </div>
+      <h4>Bootstrap, v4.3.1</h4>
+      <ul>
+	<li>A CSS framework (tagline type thing here)</li>
+	<li>Designed <strong>mobile-first</strong>: Scales well to any screen size</li>
+	<br />
+	<li>Built on a foundation of <em><strong>Reboot</strong></em></li>
+	<ul>
+	  <li>Changes to HTML tag displays as a whole</li>
+	  <li>Rather than relying on browswer-specific defaults, this default set of styles <em>standardizes</em> across browsers</li>
+	  <li>For example: <a href="#">links</a> look like <a href="#">this</a>, only showing an underline when hovered upon</li>
+	  <li><input type="text" placeholder="a text box" /> looks like this, rather than browser defaults; every browser will show this <em>exactly the same</em></li>
+	  <li>As has been seen continuously throughout this page, the default font is now <strong>Roboto</strong> as a default fallback</li>
+	</ul>
+	<li>Layout and grid system uses CSS flexbox to properly place elements on a mobile or desktop screen</li>
+	<li>a `&lt;div class="container" &rt;` tag is used to surround the entire body</li>
+      </ul>
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <br />
+      <p><em>A collection of buttons: try zooming in, see what happens to the row when it would otherwise overflow!</em></p>
+      <div class = "container">
+	<div class="row">
+	  <div class="col-sm-3">sm-three</div>
+	  <div class="col-sm-3">sm-three</div>
+	  <div class="col-sm-3">sm-three</div>
+	</div>
+	<div class="row">
+	  <div class="col-sm-2">sm-two</div>
+	  <div class="col-sm-2">sm-two</div>
+	  <div class="col-sm-2">sm-two</div>
+	  <div class="col-sm-2">sm-two</div>
+	</div>
+	<div class="row">
+	  ...
+	</div>
+      </div>
+
+      <div class = "container">
+	<div class = "row">
+	  <div class = "col-sm">
+	    Border Spinners:
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-primary" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-secondary" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-success" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-danger" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-warning" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-info" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-light" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-border text-dark" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	</div>
+	<div class = "row">
+	  <div class = "col-sm">
+	    Growing Spinner:
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-primary" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-secondary" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-success" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-danger" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-warning" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-info" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-light" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	  <div class = "col-sm">
+	    <div class="spinner-grow text-dark" role="status">
+	      <span class="sr-only">Loading...</span>
+	    </div>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
