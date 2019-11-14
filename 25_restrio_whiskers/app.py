@@ -43,10 +43,15 @@ def displaySecond():
 #
 def displayThird():
     http = urllib3.PoolManager()
-    u = http.request('GET',req3)
+    u = http.request('GET',"https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
     response = u.data.decode('utf-8')
     data = json.loads(response)
-    return render_template("third.html",pic = data['urls']['small'])
+    deck_id = data['deck_id']
+    u2 = http.request('GET','https://deckofcardsapi.com/api/deck/{}/draw/?count=5'.format(deck_id))
+    response2 = u2.data.decode('utf-8')
+    data2 = json.loads(response2)
+    print(data2)
+    return render_template("third.html",deck = data2['cards'])
 
 
 

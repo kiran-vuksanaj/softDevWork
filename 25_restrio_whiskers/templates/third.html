@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-  </head>
-  
+    <title>Shuffled Deck of Cards</title>
+  </head>  
   <body>
-
-    
+    A new deck of cards is shuffled, and five cards are drawn. This is your hand.<br />
+    {% for card in deck %}
+    <img src={{card.image}} />
+    {% endfor %}
     
   </body>
 </html>
