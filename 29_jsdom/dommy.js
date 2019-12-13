@@ -37,3 +37,26 @@ var addItem = function(e) {
 
 
 var add = document.getElementById("b").addEventListener('click', addItem);
+
+var fib = function(n) {
+    return ( n < 2 ) ? 1 : fib(n-1) + fib(n-2);
+}
+
+var addFib = function(e) {
+    console.log(e);
+    // get list where elements should be appended
+    var fiblist = document.getElementById('fiblist');
+    console.log(fiblist.children);
+    console.log(fiblist.children.length);
+    // generate the nth fibonacci number, where n is the existing length of generated numbers
+    var newFibVal = fib(fiblist.children.length);
+    // create element and text node to append onto the list, inserting generated number
+    var newli = document.createElement('li');
+    var node = document.createTextNode(newFibVal);
+    // attach node and child to the rest of the DOM
+    newli.appendChild(node);
+    fiblist.appendChild(newli);
+}
+
+var fb = document.getElementById('fb');
+fb.addEventListener('click',addFib);
