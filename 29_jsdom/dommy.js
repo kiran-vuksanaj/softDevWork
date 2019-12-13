@@ -58,5 +58,23 @@ var addFib = function(e) {
     fiblist.appendChild(newli);
 }
 
+var addFib2 = function(e) {
+    console.log(e);
+    var fiblist = document.getElementById('fiblist');
+    var newFibVal;
+    if( fiblist.children.length < 2 ) {
+	newFibVal = 1;
+    }else {
+	var children = fiblist.children;
+	var ultFib = parseInt(children[children.length-1].innerHTML);
+	var penultFib = parseInt(children[children.length-2].innerHTML);
+	newFibVal = ultFib + penultFib;
+    }
+    var newli = document.createElement('li');
+    var node = document.createTextNode(newFibVal);
+    newli.appendChild(node);
+    fiblist.appendChild(newli);
+}
+
 var fb = document.getElementById('fb');
-fb.addEventListener('click',addFib);
+fb.addEventListener('click',addFib2);
