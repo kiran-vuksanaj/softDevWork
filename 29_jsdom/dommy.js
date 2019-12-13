@@ -1,3 +1,9 @@
+// Mozzarella Ramen - Tiffany Cao, Kiran Vuksanaj
+// SoftDev1 pd1
+// K29 -- Sequential Progression III: Season of the Witch
+// 2019-12-12
+
+
 var changeHeading = function(e) {
   console.log(e);
   var h = document.getElementById("h");
