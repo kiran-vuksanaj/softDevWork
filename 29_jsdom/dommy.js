@@ -64,20 +64,33 @@ var addFib = function(e) {
     fiblist.appendChild(newli);
 }
 
+
 var addFib2 = function(e) {
+    // DYNAMIC PROGRAMMING implementation
+    // in the more simplistic fib() function, two recursive calls are made, creating a tree of recursive calls
+    // this means that calculating fib(n) requires approximately 2^n function calls; this is bad!
+    // the old fib(n) can't calculate beyond approximately fib(45) without taking days to complete
+    // in this version, the already generated values are used to quickly and easily calculate the subsequent values
+    // they don't even need to be specially stored, because they're stored in the <ol> displayed on the page!
     console.log(e);
+    // var to access the ordered list
     var fiblist = document.getElementById('fiblist');
+    // DETERMINE VALUE TO WRITE
     var newFibVal;
     if( fiblist.children.length < 2 ) {
+	// when not enough numbers have been generated, fib should be equal to 1.
 	newFibVal = 1;
     }else {
+	// when there are enough numbers generated, get the last two values and add them
 	var children = fiblist.children;
 	var ultFib = parseInt(children[children.length-1].innerHTML);
 	var penultFib = parseInt(children[children.length-2].innerHTML);
 	newFibVal = ultFib + penultFib;
     }
+    // generate create element and text to be added
     var newli = document.createElement('li');
     var node = document.createTextNode(newFibVal);
+    // link these new elements into the DOM
     newli.appendChild(node);
     fiblist.appendChild(newli);
 }
