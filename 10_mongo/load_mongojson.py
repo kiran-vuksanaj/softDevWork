@@ -5,9 +5,9 @@
 
 from json import loads
 from pymongo import MongoClient
-from urllib.request import Request, urlopen
+from sys import argv
 
-DEFAULT_FILENAME = "movies.json"
+FILENAME = "movies.json"
 
 def load_mongo_json(filename,coll):
     with open(filename,"r") as jsonfile:
@@ -22,7 +22,10 @@ if __name__ == "__main__":
     client = MongoClient()
     db_tt4 = client.TobyTop40
     coll_movies = db_tt4.movies
-    load_mongo_json(DEFAULT_FILENAME,coll_movies)
+    if len(argv) > 1:
+        FILENAME = argv[1]
+    print("loading json data from" , FILENAME ) 
+    load_mongo_json(FILENAME,coll_movies)
     print("data successfully loaded\nlook in database 'TobyTop40', collection 'movies'")
 
 
