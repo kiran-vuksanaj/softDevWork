@@ -48,3 +48,18 @@ def moviesInThisGenre(genre):
 #moviesFromTo(2000,2001)
 #moviesThisPerformerIn("Tom Cruise")
 #moviesInThisGenre("Horror")
+
+requested_command = input("what would you like to search for? [year,performer,genre]: ")
+if requested_command == "year":
+    print("you requested: movies in a time interval")
+    startyear = int(input("start year: "))
+    endyear = int(input("end year: "))
+    moviesFromTo(startyear,endyear)
+elif requested_command == "performer":
+    print("you requested: movies including a specified performer")
+    name = input("performer name: ")
+    moviesThisPerformerIn(name)
+elif requested_command == "genre":
+    print("you requested: movies in a specific genre")
+    genre = input("genre: ")
+    moviesInThisGenre(genre)
