@@ -5,18 +5,20 @@
 
 from json import loads
 from pymongo import MongoClient
+from urllib.request import Request, urlopen
 
-def load_mongoclient():
-    client = MongoClient()
-    db = client.test
-    JDB = db.JDB
+DEFAULT_URL = "https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json"
 
-def load_mongo_json(filename):
-    pass
+def load_mongo_json(url,db):
+    req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+    response = loads(urlopen(req).read().decode('utf-8'))
+    db.insert(response)
 
 if __name__ == "__main__":
-    load_mongoclient()
-    load_mongo_json("testfile.json")
+    client = MongoClient()
+    db = client.test
+    TobyTop40 = db.TobyTop40
+    load_mongo_json(DEFAULT_URL,TobyTop40)
     print("complete!")
 
 
