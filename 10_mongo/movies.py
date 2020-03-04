@@ -22,7 +22,7 @@ def moviesFromTo(start, end):
 #displays all the movies a certain actor/actress was in
 def moviesThisPerformerIn(name):
     """prints all the movies that includes the performer with [name] in its cast"""
-    data = movies.find({"cast": {"$in": name}})
+    data = movies.find({"cast": {"$in": [ name ] } } )
     for movie in data:
        for key, value in movie.items():
            if key == "title":
@@ -31,12 +31,12 @@ def moviesThisPerformerIn(name):
 #displays all the movies with in this genre
 def moviesInThisGenre(genre):
     """prints all the movies with [genre] in its list of genres"""
-    data = movies.find({"genre": {"$in": genre}})
+    data = movies.find({"genres": {"$in": [genre] } })
     for movie in data:
        for key, value in movie.items():
            if key == "title":
                print("{title: %s}" % value)
 
-moviesFromTo(2000,2001)
+#moviesFromTo(2000,2001)
 #moviesThisPerformerIn("Tom Cruise")
-#moviesInThisGenre("Comedy")
+moviesInThisGenre("Horrogr")
