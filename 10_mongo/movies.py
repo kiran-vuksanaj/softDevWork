@@ -6,6 +6,14 @@
 import json
 from pymongo import MongoClient
 
+"""
+Wikipedia Movie Data, by Peter Rust
+This dataset contains information about a great number of American-made movies, including their title,genre,year,cast, and more
+raw data can be found at: https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json
+
+As can be found in a separate file, load_mongojson.py, our import mechanism can take any json file as its second argument, and employs json.loads to convert the data into a python dictionary and in turn load the data into the locally running MongoDB server, in the database TobyTop40 and the collection 'movies'
+"""
+
 client = MongoClient()
 db = client.TobyTop40
 movies = db.movies
@@ -39,4 +47,4 @@ def moviesInThisGenre(genre):
 
 #moviesFromTo(2000,2001)
 #moviesThisPerformerIn("Tom Cruise")
-moviesInThisGenre("Horrogr")
+#moviesInThisGenre("Horror")
