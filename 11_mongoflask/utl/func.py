@@ -46,25 +46,35 @@ def lat(n):
 def moviesFromTo(start, end):
     """prints all the movies from the years in the interval [start, end]"""
     data = movies.find({"year": {"$gte": start, "$lte": end}})
+    return list(data)
+    '''
     for movie in data:
        for key, value in movie.items():
            if key == "title":
                print("{title: %s}" % value)
-
+    '''
+    
 #displays all the movies a certain actor/actress was in
 def moviesThisPerformerIn(name):
     """prints all the movies that includes the performer with [name] in its cast"""
+    data =  movies.find({"cast": {"$in": [ name ] } } )
+    return list(data)
+    '''
     data = movies.find({"cast": {"$in": [ name ] } } )
     for movie in data:
        for key, value in movie.items():
            if key == "title":
                print("{title: %s}" % value)
-
+    '''
 #displays all the movies with in this genre
 def moviesInThisGenre(genre):
     """prints all the movies with [genre] in its list of genres"""
+    data =  movies.find({"genres": {"$in": [genre] } })
+    return list(data)
+    '''
     data = movies.find({"genres": {"$in": [genre] } })
     for movie in data:
        for key, value in movie.items():
            if key == "title":
                print("{title: %s}" % value)
+    '''

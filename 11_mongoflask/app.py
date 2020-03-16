@@ -34,7 +34,16 @@ def hello_world():
 def movie_query():
     if 'return_data' in request.args:
         print('request sent: return data')
-
+        request_type = request.args['request_type']
+        if request_type == 'performer':
+            movies = moviesThisPerformerIn( request.args['query'] )
+        elif request_type == 'genre':
+            movies = moviesInThisGenre( request.args['query'] )
+        elif request_type == 'year':
+            movies = moviesFromTo( request.args['start_year'], request.args['end_year'] )
+    else:
+        movies = []
+    print(movies)
     return render_template("movie.html")
 
 if __name__ == "__main__":
