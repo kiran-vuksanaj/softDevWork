@@ -2,6 +2,7 @@
 
 {% block body %}
 <div class="container w-50 rounded">
+  <br />
   <h3>Hollywood Movies</h3>
   <form action="/movies" method="GET">
     <div class="form-group w-25">
@@ -32,5 +33,12 @@
     <button type="submit" class="btn btn-info" name="return_data">Request Data</button>
   </form>
 </div>
+{% if display_data %}
+
+<div class="container w-50 rounded">
+  <hr />
+  <h4> Query Results: </h4>
+</div>
+{% endif %}
 
 {% endblock %}

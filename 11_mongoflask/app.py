@@ -44,7 +44,10 @@ def movie_query():
     else:
         movies = []
     print(movies)
-    return render_template("movie.html")
+    return render_template("movie.html",
+                           movies=movies,
+                           display_data = ('return_data' in request.args)
+                           )
 
 if __name__ == "__main__":
     app.debug = True
