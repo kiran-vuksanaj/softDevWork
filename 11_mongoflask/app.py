@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import pymongo, json, pprint
 from bson.json_util import loads
 from utl.func import name, mass, biggest, year, lat, moviesFromTo, moviesThisPerformerIn, moviesInThisGenre
@@ -29,6 +29,13 @@ app = Flask(__name__)
 def hello_world():
     print("RISE AND SHINE, TIME TO GRIND")
     return render_template("base.html")
+
+@app.route("/movies")
+def movie_query():
+    if 'return_data' in request.args:
+        print('request sent: return data')
+
+    return render_template("movie.html")
 
 if __name__ == "__main__":
     app.debug = True
