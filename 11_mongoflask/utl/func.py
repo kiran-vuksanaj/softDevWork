@@ -8,28 +8,49 @@ col = db.meteorites
 
 # given a letter, return meteorites with names starting with that letter
 def name(a):
+    return list(filter(
+        lambda rock: rock['name'][0] == a,
+        col.find({})
+        ))
+'''
     for r in col.find({}):
         if r['name'][0] == a:
             pprint.pprint(r)
+'''
 
 # given a mass, return meteorites with mass within 50 kg of that mass
 def mass(n):
+    return list( filter(
+        lambda rock: abs(n - float(rock['mass'])) <= 50,
+        col.find({ 'mass': {'$exists': True} })
+    ))
+    '''
 	for r in col.find({ 'mass': {"$exists": True} }):
 		if abs(n - float(r['mass'])) <= 50:
 			pprint.pprint(r)
-
+    '''
 # given a mass, return meteorites with mass larger than that mass
 def biggest(n):
+    return list(filter(
+        lambda rock: float(rock['mass']) > n,
+        col.find({ 'mass': {'$exists': True} })
+        ))
+    '''
 	for r in col.find({ 'mass': {"$exists": True} }):
 		if float(r['mass']) > n:
 			pprint.pprint(r)
-
+    '''
 # given a year, return meteorites that landed in that year
 def year(n):
+    return list(filter(
+        lambda rock: float(r['year'][:4]) == n,
+        col.find({ 'year': {'$exists': True} })
+        ))
+    '''
 	for r in col.find({ 'year': {"$exists": True} }):
 		if float(r['year'][:4]) == n:
 			pprint.pprint(r)
-
+    '''
 # the equator is at latitude 0 degrees
 # each degree of latitude is 68.703 miles
 
@@ -37,10 +58,16 @@ def year(n):
 # number of miles from the equator in terms of latitude (given by reclat)
 
 def lat(n):
-	degrees = n / 68.703
+    degrees = n / 68.703
+    return list(filter(
+        lambda rock: abs(float(r['reclat'])) <= degrees,
+        col.find({ 'reclat': {'$exists': True} })
+        ))
+'''
 	for r in col.find({ 'reclat': {"$exists": True} }):
 		if abs(float(r['reclat'])) <= degrees:
 			pprint.pprint(r)
+'''
 
 #dislays all movies from a certain time range
 def moviesFromTo(start, end):
