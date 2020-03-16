@@ -52,20 +52,23 @@ def movie_query():
 
 @app.route("/meteorites")
 def rock_query():
-    if 'return-data' in request.args:
-        request_type = request.args['return-data']
+    if 'return_data' in request.args:
+        request_type = request.args['return_data']
+        print(request_type)
         if request_type == 'name':
+            print(request.args['first-letter'])
             data = name( request.args['first-letter'][0] )
         elif request_type == 'mass':
-            data = mass( int(request.args['close-mass']) )
+            data = mass( int(request.args['close-mass']))
         elif request_type == 'biggest':
-            data = biggest( int(request.args['min-mass']) )
+            data = biggest( int(request.args['min-mass']))
         elif request_type == 'year':
-            data = year( int(request.args['year-landed']) )
+            data = year( int(request.args['year-landed']))
         elif request_type == 'lat':
-            data = lat( int(request.args['latitude']) )
+            data = lat( int(request.args['latitude']))
     else:
         data = []
+    print(data)
     return render_template("rock.html",
                            rocks = data,
                            display_data = ('return_data' in request.args)

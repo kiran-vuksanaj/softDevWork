@@ -47,7 +47,7 @@
       </div>
       <div class="col-sm h-100">
 	<div class="card">
-	  <div class="card-header">Search by Landing Latitude</div>
+	  <div class="card-header">Search by Distance from Equator</div>
 	  <div class="form-group">
 	    <input class="form-control" type="number" name="latitude" placeholder="Latitude">
 	    <button type="submit" class="btn btn-info" name="return_data" value="lat">Request Data</button>
@@ -58,4 +58,29 @@
   </form>
 </div>
 
+{% if display_data %}
+
+<div class="container w-50">
+  <hr />
+  {% if rocks %}
+  <h4> Query Results: </h4>
+  <ul class="list-group">
+  {% for rock in rocks %}
+  <li class="list-group-item lead">
+    <span class="font-weight-bold">{{rock.name}}</span>
+    -
+    {{rock.mass}} kg
+    -
+    at ({{rock.reclat}}N,{{rock.reclong}}E)
+    -
+    in {{rock.year[:4]}}
+  </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="lead">No query results found. Please check spelling/values and try again.</p>
+  {% endif %}
+</div>
+
+{% endif %}
 {% endblock %}
