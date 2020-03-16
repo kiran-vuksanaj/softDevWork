@@ -8,28 +8,37 @@
   <h3>Hollywood Movies</h3>
   <form action="/movies" method="GET">
     <div class="form-group w-25">
-      <div class="form-check">
+      <div class="form-check" id="performer_option">
 	<input class="form-check-input" type="radio" name="request_type" id="performer" value="performer" checked>
 	<label class="form-check-label" for="performer">
 	  Search by Performer Name
 	</label>
       </div>
-      <div class="form-check">
+      <div class="form-check" id="genre_option">
 	<input class="form-check-input" type="radio" name="request_type" id="genre" value="genre">
 	<label class="form-check-label" for="genre">
 	  Search by Genre
 	</label>
       </div>
-      <div class="form-check">
+      <div class="form-check" id="year_option">
 	<input class="form-check-input" type="radio" name="request_type" id="year" value="year">
 	<label class="form-check-label" for="year">
 	  Search by Release Year
 	</label>
       </div>
     </div>
-    <div class="form-group">
-      <label for="query">Search Query</label>
-      <input class="form-control" id="query" name="query" type="text" />
+    <div class="form-group" id="querytext">
+      <input class="form-control" id="query" name="query" type="text" placeholder="Search Query"/>
+    </div>
+    <div class="form-group" id="queryyear" style="display: none;">
+      <div class="row">
+	<div class="col">
+	  <input class="form-control" id="start_year" name="start_year" type="number" placeholder="Start Year" />
+	</div>
+	<div class="col">
+	  <input class="form-control" id="end_year" name="end_year" type="number" placeholder="End Year" />
+	</div>
+      </div>
     </div>
     <br />
     <button type="submit" class="btn btn-info" name="return_data">Request Data</button>
@@ -39,6 +48,7 @@
 
 <div class="container w-50 rounded">
   <hr />
+  {% if movies %}
   <h4> Query Results: </h4>
 
   {% for movie in movies %}
@@ -59,8 +69,15 @@
   </div>
   
   {% endfor %}
+
+  {% else %}
+  <p class="lead">No query results found. Please check spelling and try again.</p>
+  {% endif %}
 </div>
 
 {% endif %}
+
+
+<script src="/static/movie.js" />
 
 {% endblock %}

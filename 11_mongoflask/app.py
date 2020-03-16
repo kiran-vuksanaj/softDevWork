@@ -40,7 +40,8 @@ def movie_query():
         elif request_type == 'genre':
             movies = moviesInThisGenre( request.args['query'] )
         elif request_type == 'year':
-            movies = moviesFromTo( request.args['start_year'], request.args['end_year'] )
+            print(request.args['start_year'],request.args['end_year'])
+            movies = moviesFromTo( int(request.args['start_year']), int(request.args['end_year']) )
     else:
         movies = []
     print(movies)
