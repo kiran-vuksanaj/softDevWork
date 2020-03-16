@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Meteorites{% endblock %}
+
+{% block body %}
+
+<div class="container container-fluid">
+  <br />
+  <h3>Meteorite Data</h3>
+  <form action="/meteorites" method="GET">
+    <div class="row">
+      <div class="col-sm">
+	<div class="card">
+	  <div class="card-header">Search by First Letter</div>
+	  <div class="form-group">
+	    <input class="form-control" type="text" name="first-letter" placeholder="First Letter">
+	    <button type="submit" class="btn btn-info" name="return_data" value="name">Request Data</button>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm">
+	<div class="card">
+	  <div class="card-header">Search by Mass</div>
+	  <div class="form-group">
+	    <input class="form-control" type="number" name="close-mass" placeholder="Mass (kg)">
+	    <button type="submit" class="btn btn-info" name="return_data" value="mass">Request Data</button>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm">
+	<div class="card">
+	  <div class="card-header">Search by Minimum Mass</div>
+	  <div class="form-group">
+	    <input class="form-control" type="number" name="min-mass" placeholder="Mass (kg)">
+	    <button type="submit" class="btn btn-info" name="return_data" value="biggest">Request Data</button>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm">
+	<div class="card">
+	  <div class="card-header">Search by Year Landed</div>
+	  <div class="form-group">
+	    <input class="form-control" type="number" name="year-landed" placeholder="Year">
+	    <button type="submit" class="btn btn-info" name="return_data" value="year">Request Data</button>
+	  </div>
+	</div>
+      </div>
+      <div class="col-sm h-100">
+	<div class="card">
+	  <div class="card-header">Search by Landing Latitude</div>
+	  <div class="form-group">
+	    <input class="form-control" type="number" name="latitude" placeholder="Latitude">
+	    <button type="submit" class="btn btn-info" name="return_data" value="lat">Request Data</button>
+	  </div>
+	</div>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

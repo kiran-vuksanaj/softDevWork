@@ -62,6 +62,8 @@ def rock_query():
             data = biggest( int(request.args['min-mass']) )
         elif request_type == 'year':
             data = year( int(request.args['year-landed']) )
+        elif request_type == 'lat':
+            data = lat( int(request.args['latitude']) )
     else:
         data = []
     return render_template("rock.html",
