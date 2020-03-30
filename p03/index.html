@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+	  Kiran Vuksanaj and Emory Walsh
+	  Softdev2 pd9
+	  P03 - Website form of Graph Database Presentation
+	  03-30-2020
+	-->
+  <!--
+	  CREDIT TO: Skeleton (getskeleton.com) for the html and css framework we use to allow for the ease of organization of data so that HTML could get out of the way and we could present our information simply.
+	-->
+  
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Graph Databases and neo4j</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 15%">
+        <h2>Graph Databases</h2>
+		    <h6>by Kiran Vuksanaj and Emory Walsh</h6>
+      </div>
+    </div>
+
+	<div class="row">
+	  <div class="one column">
+		<p>1</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+		<h4>What is a Graph?</h4>
+	  </div>
+	</div>
+	<div class="row">
+	  <p>For the purpose of this guide, a graph is <strong>not</strong> what you likely have in mind as a graph. As opposed to the typical idea of bar graphs or pie charts, we are talking about a simply a collection of points connected to one another. The points, which can contain information, are known as <strong>nodes</strong>, and the connections between them are known as <strong>edges.</strong> The field of mathematics known as <strong>graph theory</strong> studies these graphs and algorithms and theorems that are helpful in traversing the data contained within them.
+	  </p>
+	</div>
+
+	<div class="row">
+	  <div class="one column">
+		<p>2</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+		<h4>What is a Graph Database?</h4>
+	  </div>
+	</div>
+	<div class="row">
+    <p>A graph database is a collection of nodes, each representing its own entity, that have defined relationships with each other. Below is an example of a very simple graph database.</p>
+    <div align="center">
+      <img src="static/simple.png" alt="Simple graph database" style="width:400px; height:300px; ">
+    </div>
+  </div>
+
+	<div class="row">
+	  <div class="one column">
+		<p>3</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+		   <h4>What are graph databases used for?</h4>
+	  </div>
+	</div>
+	<div class="row">
+    <p>Graph data bases are used for many different situations.For example, Walmart used a graph database to implement their reccomendation engine based on the relationships with past searches. Also, the US Army uses a graph database to track data about their machinery so they know when they need to replace parts. Graph databases are also very useful in fraud detection.</p>
+	</div>
+
+	<div class="row">
+	  <div class="one column">
+		<p>4</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+  		<h4>Pros and Cons</h4>
+    </div>
+  </div>
+	<div class="row" style="display:flex;">
+    <div class="column">
+      <h5>Pros</h5>
+      <ul>
+        <li>Flexibility in how you define your nodes and relationships</li>
+        <li>Fast relationship-based search and indexing</li>
+        <li>Graph databases have specific functionalities to store/manage graphs</li>
+      </ul>
+    </div>
+    <div class="column">
+        <h5>Cons</h5>
+        <ul>
+          <li>Not always efficient based on the relationships between data pieces</li>
+          <li>All data stored on one server so not very scalable</li>
+          <li>Can't perform mass analytics</li>
+        </ul>
+    </div>
+  </div>
+
+	<div class="row">
+	  <div class="one column">
+		<p>5</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+		<h4>Graph Algorithms</h4>
+	  </div>
+	</div>
+	<div class="row">
+	  <p>
+		The mathematical field of graph theory has produced a number of algorithms that are immensely helpful when attempting to quickly traverse a graph database. The most famous of these is <strong>Dijkstra's Algorithm</strong> Which can find the shortest path connecting two nodes in a graph, using some sort of contained data about the "length" of each edge. In a similar vein, the <strong>Bellman-Ford Algorithm</strong> finds and stores the shortest path from one node in a graph to any other node connected to it.
+	  </p>
+	  <p>
+		While the mathematics behind these algorithms is extremely interesting, we won't explain that here. We choose not to because of the fact that in order to use a graph database, you don't need to know how these algorithms work. These algorithms are built into graph database systems, under names like 'shortest-path', so that you can use the full potential of the graph database without being restrained by the details of algorithms.
+	  </p>
+	</div>
+
+	<div class="row">
+	  <div class="one column">
+		<p>6</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+		<h4>neo4j</h4>
+	  </div>
+	</div>
+	<div class="row">
+	  <p>
+		<strong>neo4j</strong> is one of the most well established and widely used services for building a graph database. It is free to use, has a great number of tutorials on their website to help understand the basics of graph theory and get into building your own graph database. There are paid versions available for larger scale operations by large companies, but because there is a free version available, you can play around with the concepts of graph theory on your own.
+	  </p>
+	  <p>
+		neo4j uses a language of their own creation, known as <strong>Cypher</strong>, to allow you to interact with your graph database. Without getting too much into the details, its syntax is based loosely on ASCII art representing the edges with dashes and arrows and nodes with brackets. Graph algorithms are built into it with simple command syntaxes. Rather than going in depth with a tutorial here, we recommend you check out the tutorials provided by <a href="https://neo4j.com/">neo4j</a>, which both help develop an understanding of their own language, as well as develop a further understanding of the concepts behind graph databases.
+	</div>
+	<div class="row">
+	  <div class="one column">
+		<p>7</p>
+	  </div>
+	  <div class="eight columns u-pull-right">
+		<h4>Reference: new databasing workflow</h4>
+	  </div>
+	</div>
+	<div class="row">
+	  <table>
+		<thead>
+		  <tr>
+			<th>
+			  Database Type
+			</th>
+			<th>
+			  Database System
+			</th>
+			<th>
+			  Query Language
+			</th>
+			<th>
+			  Python Driver
+			</th>
+			<th>
+			  Database Viewer
+			</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<td>
+			  Relational
+			</td>
+			<td>
+			  SQLite
+			</td>
+			<td>
+			  SQL
+			</td>
+			<td>
+			  sqlite (pip package)
+			</td>
+			<td>
+			  sqlite (shell command)
+			</td>
+		  </tr>
+		  <tr>
+			<td>
+			  Document
+			</td>
+			<td>
+			  MongoDB
+			</td>
+			<td>
+			  Javascript
+			</td>
+			<td>
+			  pymongo
+			</td>
+			<td />
+		  </tr>
+		  <tr><strong>
+			  <td>
+				Graph
+			  </td>
+			  <td>
+				neo4j
+			  </td>
+			  <td>
+				Cypher
+			  </td>
+			  <td>
+				py2neo
+			  </td>
+			  <td>
+				neo4j Desktop
+			  </td>
+		  </strong></tr>
+		</tbody>
+	  </table>
+	</div>
+  <div align="center">
+    <img src="static/complicated.png" alt="More complicated graph database" style="width:750px; height:500px; ">
+  </div>
+  <div align="center">
+    <img src="static/got.png" alt="Graph database showing Game of Thrones characters" style="width:750px; height:500px; ">
+  </div>
+
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
