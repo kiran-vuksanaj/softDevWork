@@ -20,6 +20,8 @@ var clear = function(e) {
 	while ( vImage.firstChild ) {
 		vImage.removeChild( vImage.firstChild );
 	}
+	prevX = -1;
+	prevY = -1;
 	console.log("children of vImage removed")
 }
 
