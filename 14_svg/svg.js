@@ -25,7 +25,7 @@ var draw = function(e) {
 var movesvg = function(e) {
     circles = pic.children;  
     for (i = 0; i < circles.length; i++) { 
-		var circle = circles[i]
+		var circle = circles[i];
 		var cx = parseInt(circle.getAttribute("cx")); 
 		var cy = parseInt(circle.getAttribute("cy"));
 		var vx = parseInt(circle.getAttribute("vx"));
@@ -63,25 +63,62 @@ var clearsvg = function(e) {
     id = 0;
 }
 
-var getRandomColor = function(e) {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
+// var getRandomColor = function(e) {
+//   var letters = '0123456789ABCDEF';
+//   var color = '#';
+//   for (var i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
+// }
 
 var xtrasvg = function(e) {
     circles = pic.children;  
     for (i = 0; i < circles.length; i++) {
-    	var c = circle[i];
-    	c.setAttribute("fill", getRandomColor);
+    	var c = circles[i];
+		console.log("yo");
+    	// c.setAttribute("fill", getRandomColor);
+		var cx = parseInt(c.getAttribute("cx"));
+		var cy = parseInt(c.getAttribute("cy"));
+		var vx = parseInt(c.getAttribute("vx"));
+		var vy = parseInt(c.getAttribute("vy"));
+		vy += 1;
+
+		cx += vx;
+		cy += vy;
+
+		if(cx < 10 || cx > 490){
+			vx *= -1;
+			if( cx < 10 ) cx = 10;
+			if( cx > 490) cx = 490;
+		}
+		if(cy < 10 || cy > 490){
+			vy *= -1;
+			if( cy < 10 ) cy = 10;
+			if( cy > 490) cy = 490;
+		}
+
+
+		c.setAttribute("cx",cx);
+		c.setAttribute("cy",cy);
+		c.setAttribute("vx",vx);
+		c.setAttribute("vy",vy);
     }
+	if( id != 0 ){
+		id = window.requestAnimationFrame(xtrasvg);
+	}
 }
 
 var xtra = function(e) {
     window.cancelAnimationFrame(id);
+	// random velocities for all the balls
+	circles = pic.children;
+	for (i = 0; i < circles.length; i++){
+		var c = circles[i];
+		c.setAttribute("vx",Math.random()*4+1);
+		c.setAttribute("vy",Math.random()*4+1);
+		// c.setAttribute("ay",-0.5);
+	}
     id = window.requestAnimationFrame(xtrasvg);
 }
 
