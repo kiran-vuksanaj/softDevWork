@@ -1,0 +1,57 @@
+Team Catbread: Leia Park & Kiran Vuksanaj
+SoftDev pd 9
+K15: Capture Bubble Toil Trouble
+2020-04-01
+
+1.
+Prediction: 
+- a chart of names will be displayed on the webpage
+- upon clicking the names, the clicky function will activate and show an alert of the selected name
+
+Observations:
+- a 2 x 3 chart is displayed
+- names of Star Wars characters are in each box
+- when clicking a name, an alert is displayed that simply says the name
+- clicking surrounding area gives no effect
+
+2.
+Prediction: 
+- a chart of names is displayed
+- upon clicking the names, the clicky function activates and shows an alert of the selected name
+- once it shows the name alert, it will activate the clicky function again and this time show the names in the same row
+
+Observations:
+- clicking a name shows an alert simply displaying the name
+- after pressing ok on the alert, another alert pops up showing the row of names the name belongs to
+- after pressing ok for that alert, a third alert pops up displaying all the names in the table
+
+Comments:
+- because there is an “addEventListener” for the whole table, clicking on the table shows the names in the entire table
+- however, the alert displays the HTML that contains the names instead of only the names
+- same for the when the alert displays the row of names
+
+3. 
+Prediction:
+- when “stopPropagation” is commented out, the alerts will follow in the same order as the previous folder
+- when “stopPropagation” is uncommented, the alert that displays all the names will pop out but the others will not show
+
+Observations:
+- when “stopPropagation” is commented out, the first alert that displays contains all the names, then the name selected, and then the row of names
+-  when “stopPropagation” is uncommented, the alert that displays all the names popped out but the other alerts did not
+
+Questions:
+- how does adding a “true” result in an alert to be the first to pop out?
+- how does adding a “true” make the alert an exception to the “stopPropagation”?
+
+4.
+Prediction:
+- when “stopPropagation” is commented out, the alerts will pop out in the same order as in folder 2 (only the name, the row of names, all of the names)
+- when “stopPropagation” is uncommented, the alerts will pop out in the same order as stated above
+
+Observations:
+- the order of the alerts goes backwards: all the names pop up, then the row of names, and then the selected name
+- when “stopPropagation” is uncommented, only the alert with all the names pops up
+
+Comments:
+- it seems “true” reverses the order by giving priority to the latest clicked object
+- because “stopPropagation” is after the alert function in the clicky function, one alert is able to pop up before the next one is prevented
